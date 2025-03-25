@@ -24,6 +24,14 @@ public class Equipo {
         if (p == null) {
             throw new IllegalArgumentException("El miembro no puede ser nulo.");
         }
+        if(miembros.contains(p)) {
+    		throw new IllegalArgumentException("El miembro ya existe");
+        }
+        for(Personal persona: miembros) {
+        	if(persona.getDni().equalsIgnoreCase(p.getDni())) {
+        		throw new IllegalArgumentException("El dni no puede estar duplicado.");
+        	}
+        }
         miembros.add(p);
     }
 
